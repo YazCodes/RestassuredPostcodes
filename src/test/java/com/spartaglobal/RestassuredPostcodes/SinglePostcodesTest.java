@@ -10,7 +10,9 @@ import org.junit.Test;
 public class SinglePostcodesTest
 {
     private static Response singlePostcodeResponse;
-    @BeforeClass
+
+
+    @BeforeClass     //the static method to which is attached must be executed once and before all tests in the class.
     public static void setup(){
         baseURI = "https://api.postcodes.io";
         basePath = "/postcodes/";
@@ -22,7 +24,7 @@ public class SinglePostcodesTest
         singlePostcodeResponse
                 .then()
                 .statusCode(200)
-                .body("result.postcode", equalTo("CR0 6HT"));
+                .body("result.postcode", equalTo("CR0 6HT"));  //result.postcode came from the layout of the JSON file in postman
     }
 }
 

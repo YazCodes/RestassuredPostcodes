@@ -20,7 +20,7 @@ public class MultiplePostcodes {
 
     @BeforeClass
     public static void setup() {
-        baseURI = "https://api/postcodes.io";
+        baseURI = "https://api.postcodes.io";
         basePath = "/postcodes/";
 
         multiplePCResponse =  //creating post
@@ -44,6 +44,7 @@ public class MultiplePostcodes {
 
     @Test
     public void checkPostcodeResponse () {
-        Assert.assertEquals("cr06ht", multiplePCResponse.getString("result[0].result.postcode"));
+        System.out.println(multiplePCResponse.get("result").toString());
+        Assert.assertEquals("CR0 6HT", multiplePCResponse.getString("result[0].result.postcode")); // the postcode is in an array, i want the first postcode therefore result [0]
     }
 }
